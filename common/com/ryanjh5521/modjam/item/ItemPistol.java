@@ -2,6 +2,9 @@ package com.ryanjh5521.modjam.item;
 
 import com.ryanjh5521.modjam.entity.projectile.EntityPistolShot;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.item.Item;
@@ -26,4 +29,9 @@ public class ItemPistol extends Item
     }
     return par1ItemStack;
     }
+  @SideOnly(Side.CLIENT)
+  public void registerIcons (IconRegister ir)
+  {
+	  this.itemIcon = ir.registerIcon("combatplusplus:itemPistol");
+  }
 }

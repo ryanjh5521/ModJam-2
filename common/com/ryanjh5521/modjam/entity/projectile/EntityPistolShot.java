@@ -3,6 +3,7 @@ package com.ryanjh5521.modjam.entity.projectile;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
@@ -21,9 +22,14 @@ import net.minecraft.world.World;
 	       super(par1World, par2, par4, par6);
 	   }
 	   @Override
-	   protected void onImpact(MovingObjectPosition movingobjectposition) 
+	   protected void onImpact(MovingObjectPosition par1MovingObjectPosition) 
 	   {
-	     this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)100.0F, true);		
-	     this.setDead();
+		   if (par1MovingObjectPosition.entityHit != null)
+	        {
+	            byte b0 = 4;
+	            par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)b0);
+	   	     this.setDead();
+	        }
 	   }
 	}
+	

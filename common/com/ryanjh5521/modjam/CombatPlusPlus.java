@@ -19,7 +19,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import com.ryanjh5521.modjam.entity.projectile.EntityPistolShot;
 import com.ryanjh5521.modjam.item.*;
 
-@Mod(modid="Combat++", name="Combat++", version="0.01")
+@Mod(modid="combatplusplus", name="Combat++", version="0.01")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class CombatPlusPlus {
 
