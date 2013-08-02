@@ -32,6 +32,6 @@ public class ItemPistol extends Item
   @SideOnly(Side.CLIENT)
   public void registerIcons (IconRegister ir)
   {
-	  this.itemIcon = ir.registerIcon("combatplusplus:itemPistol");
+	  this.itemIcon = ir.registerIcon("CombatPlusPlus:itemPistol");
   }
 }
