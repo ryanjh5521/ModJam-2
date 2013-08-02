@@ -16,10 +16,11 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+import com.ryanjh5521.modjam.entity.projectile.EntityGrenade;
 import com.ryanjh5521.modjam.entity.projectile.EntityPistolShot;
 import com.ryanjh5521.modjam.item.*;
 
-@Mod(modid="CombatPlusPlus", name="Combat++", version="0.01")
+@Mod(modid="combatplusplus", name="Combat++", version="0.01")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class CombatPlusPlus {
 
@@ -27,6 +28,8 @@ public class CombatPlusPlus {
         public static CombatPlusPlus instance;
         
         private final static Item ItemPistol = new ItemPistol(5000).setCreativeTab(CreativeTabs.tabCombat);
+        
+        private final static Item ItemGrenadeLauncher = new ItemGrenadeLauncher(5001).setCreativeTab(CreativeTabs.tabCombat);
         
         
         @SidedProxy(clientSide="com.ryanjh5521.modjam.proxy.ClientProxy", serverSide="com.ryanjh5521.modjam.proxy.CommonProxy")
@@ -40,8 +43,11 @@ public class CombatPlusPlus {
         @EventHandler
         public void load(FMLInitializationEvent event) {
                 proxy.registerRenderers();
-                LanguageRegistry.addName(ItemPistol, "Pistol");
-                EntityRegistry.registerGlobalEntityID(EntityPistolShot.class, "BlasterBolt", EntityRegistry.findGlobalUniqueEntityId());
+                LanguageRegistry.addName(ItemPistol, "Colt M1911");
+                
+                LanguageRegistry.addName(ItemGrenadeLauncher, "Grenade Launcher");
+                EntityRegistry.registerGlobalEntityID(EntityPistolShot.class, "PistolShot", EntityRegistry.findGlobalUniqueEntityId());
+                EntityRegistry.registerGlobalEntityID(EntityGrenade.class, "Grenade", EntityRegistry.findGlobalUniqueEntityId());
         }
         
         @EventHandler

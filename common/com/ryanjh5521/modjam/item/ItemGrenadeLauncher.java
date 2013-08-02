@@ -1,5 +1,6 @@
 package com.ryanjh5521.modjam.item;
 
+import com.ryanjh5521.modjam.entity.projectile.EntityGrenade;
 import com.ryanjh5521.modjam.entity.projectile.EntityPistolShot;
 
 import cpw.mods.fml.relauncher.Side;
@@ -11,9 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemPistol extends Item
+public class ItemGrenadeLauncher extends Item
 {
-  public ItemPistol(int id)
+  public ItemGrenadeLauncher(int id)
   {
     super(id);
   }
@@ -24,7 +25,7 @@ public class ItemPistol extends Item
       par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
       if (!par2World.isRemote)
       {
-        par2World.spawnEntityInWorld(new EntityPistolShot(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityGrenade(par2World, par3EntityPlayer));
       }
     }
     return par1ItemStack;
@@ -32,6 +33,6 @@ public class ItemPistol extends Item
   @SideOnly(Side.CLIENT)
   public void registerIcons (IconRegister ir)
   {
-	  this.itemIcon = ir.registerIcon("combatplusplus:itemPistol");
+	  this.itemIcon = ir.registerIcon("combatplusplus:itemGrenadeLauncher");
   }
 }
