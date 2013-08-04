@@ -29,8 +29,8 @@ public class CombatPlusPlus {
         @Instance("CombatPlusPlus")
         public static CombatPlusPlus instance;
         
-        private final static Item ItemDesertEagle = new ItemDesertEagle(300).setCreativeTab(CreativeTabs.tabCombat); 
-        private final static Item ItemGrenadeLauncher = new ItemGrenadeLauncher(200).setCreativeTab(CreativeTabs.tabCombat);
+        private final static Item DesertEagle = new ItemDesertEagle(300).setUnlocalizedName("gunPistol").setCreativeTab(CreativeTabs.tabCombat); 
+        private final static Item GrenadeLauncher = new ItemGrenadeLauncher(200).setUnlocalizedName("gunLauncher").setCreativeTab(CreativeTabs.tabCombat);
         
         
         
@@ -41,13 +41,13 @@ public class CombatPlusPlus {
         public void preInit(FMLPreInitializationEvent event) {
         }
         
+        
         @EventHandler
         public void init(FMLInitializationEvent event) {
         	    proxy.registerSoundHandler();
-                proxy.registerRenderers();
-                LanguageRegistry.addName(ItemDesertEagle, "Desert Eagle");
+                LanguageRegistry.addName(GrenadeLauncher, "Grenade Launcher");
+                LanguageRegistry.addName(DesertEagle, "Desert Eagle");
                 EntityRegistry.registerGlobalEntityID(EntityPistolShot.class, "PistolShot", EntityRegistry.findGlobalUniqueEntityId());
-                LanguageRegistry.addName(ItemGrenadeLauncher, "War Machine");
                 EntityRegistry.registerGlobalEntityID(EntityGrenade.class, "Grenade", EntityRegistry.findGlobalUniqueEntityId());
         }
         

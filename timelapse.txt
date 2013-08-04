@@ -10,8 +10,8 @@ August 2nd at 1:47 PM(Sign Off: Taking a break. Messing up alittle to much.)
 August 2nd at 2:52 PM (Sign On:Back)
 August 2nd at 4:30 PM (Sign Off: Be back tomorrow)
 
-<<<<<<< HEAD
 August 3rd at 8:53 AM (Sign On: Back)
-=======
+August 3rd at 10:54 (Sign Off: Break time)
+
 August 4th 8:05 AM (Sign On: Back)
->>>>>>> Fixed a derp (And find another one)
+August 4th 9:04 AM (Sign Of: Be back tomorrow)
