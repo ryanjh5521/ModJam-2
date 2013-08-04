@@ -1,6 +1,5 @@
 package com.ryanjh5521.modjam.item;
 
-import com.ryanjh5521.modjam.entity.projectile.EntityGrenade;
 import com.ryanjh5521.modjam.entity.projectile.EntityPistolShot;
 
 import cpw.mods.fml.relauncher.Side;
@@ -12,20 +11,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemGrenadeLauncher extends Item
+public class ItemDesertEagle extends Item
 {
-  public ItemGrenadeLauncher(int id)
+  public ItemDesertEagle(int id)
   {
     super(id);
   }
   @Override
   public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,EntityPlayer par3EntityPlayer) {
-	  par2World.playSoundAtEntity(par3EntityPlayer, "combatplusplus:gunshot", 1.0F, 1.0F);
-	  if(par3EntityPlayer.capabilities.isCreativeMode||par3EntityPlayer.inventory.consumeInventoryItem(Item.diamond.itemID))
+    if(par3EntityPlayer.capabilities.isCreativeMode||par3EntityPlayer.inventory.consumeInventoryItem(Item.diamond.itemID))
     {
+      par2World.playSoundAtEntity(par3EntityPlayer, "combatplusplus:gunshot", 1.0F, 1.0F);
       if (!par2World.isRemote)
       {
-        par2World.spawnEntityInWorld(new EntityGrenade(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityPistolShot(par2World, par3EntityPlayer));
       }
     }
     return par1ItemStack;
@@ -33,6 +32,6 @@ public class ItemGrenadeLauncher extends Item
   @SideOnly(Side.CLIENT)
   public void registerIcons (IconRegister ir)
   {
-	  this.itemIcon = ir.registerIcon("combatplusplus:itemGrenadeLauncher");
+	  this.itemIcon = ir.registerIcon("combatplusplus:itemPistol");
   }
 }

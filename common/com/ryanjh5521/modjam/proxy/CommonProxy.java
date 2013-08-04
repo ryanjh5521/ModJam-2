@@ -6,5 +6,8 @@ public class CommonProxy {
 		// TODO Auto-generated method stub
 		
 	}
+	public void registerSoundHandler() {
+		
+	}
 
 }

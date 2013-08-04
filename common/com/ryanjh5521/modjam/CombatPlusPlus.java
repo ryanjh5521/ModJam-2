@@ -2,6 +2,7 @@ package com.ryanjh5521.modjam;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.ryanjh5521.modjam.proxy.CommonProxy;
 
@@ -18,6 +19,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import com.ryanjh5521.modjam.entity.projectile.EntityGrenade;
 import com.ryanjh5521.modjam.entity.projectile.EntityPistolShot;
+import com.ryanjh5521.modjam.event.SoundHandler;
 import com.ryanjh5521.modjam.item.*;
 
 @Mod(modid="combatplusplus", name="Combat++", version="0.01")
@@ -27,9 +29,9 @@ public class CombatPlusPlus {
         @Instance("CombatPlusPlus")
         public static CombatPlusPlus instance;
         
-        private final static Item ItemPistol = new ItemPistol(5000).setCreativeTab(CreativeTabs.tabCombat);
+        private final static Item ItemDesertEagle = new ItemDesertEagle(300).setCreativeTab(CreativeTabs.tabCombat); 
+        private final static Item ItemGrenadeLauncher = new ItemGrenadeLauncher(200).setCreativeTab(CreativeTabs.tabCombat);
         
-        private final static Item ItemGrenadeLauncher = new ItemGrenadeLauncher(5001).setCreativeTab(CreativeTabs.tabCombat);
         
         
         @SidedProxy(clientSide="com.ryanjh5521.modjam.proxy.ClientProxy", serverSide="com.ryanjh5521.modjam.proxy.CommonProxy")
@@ -37,16 +39,15 @@ public class CombatPlusPlus {
         
         @EventHandler
         public void preInit(FMLPreInitializationEvent event) {
-        
         }
         
         @EventHandler
-        public void load(FMLInitializationEvent event) {
+        public void init(FMLInitializationEvent event) {
+        	    proxy.registerSoundHandler();
                 proxy.registerRenderers();
-                LanguageRegistry.addName(ItemPistol, "Colt M1911");
-                
-                LanguageRegistry.addName(ItemGrenadeLauncher, "Grenade Launcher");
+                LanguageRegistry.addName(ItemDesertEagle, "Desert Eagle");
                 EntityRegistry.registerGlobalEntityID(EntityPistolShot.class, "PistolShot", EntityRegistry.findGlobalUniqueEntityId());
+                LanguageRegistry.addName(ItemGrenadeLauncher, "War Machine");
                 EntityRegistry.registerGlobalEntityID(EntityGrenade.class, "Grenade", EntityRegistry.findGlobalUniqueEntityId());
         }
         
